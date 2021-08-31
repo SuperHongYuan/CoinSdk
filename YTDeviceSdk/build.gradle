@@ -1,7 +1,8 @@
 plugins {
     id 'com.android.library'
 }
-
+apply plugin: 'com.github.dcendents.android-maven' // 增加
+group='com.github.SuperHongYuan'
 def libraryVersion = '1.0.0.6'
 
 android {
