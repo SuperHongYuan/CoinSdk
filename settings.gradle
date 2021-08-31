@@ -1,0 +1,4 @@
+include ':coinSdk'
+include ':YTDeviceSdk'
+include ':network'
+rootProject.name = "CoinSdk"
