@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.library'
-    id("maven-publish")
 }
 def libraryVersion = '1.0.0.4'
 
@@ -64,27 +63,27 @@ dependencies {
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
 }
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                // Applies the component for the release build variant.
-                from components.release
-
-                // You can then customize attributes of the publication as shown below.
-                groupId = 'cn.ych.network'
-                artifactId = 'CoinSDK'
-                version = libraryVersion
-            }
-            // Creates a Maven publication called “debug”.
-            debug(MavenPublication) {
-                // Applies the component for the debug build variant.
-                from components.debug
-
-                groupId = 'cn.ych.network'
-                artifactId = 'CoinSDK-debug'
-                version = libraryVersion
-            }
-        }
-    }}
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                // Applies the component for the release build variant.
+//                from components.release
+//
+//                // You can then customize attributes of the publication as shown below.
+//                groupId = 'cn.ych.network'
+//                artifactId = 'CoinSDK'
+//                version = libraryVersion
+//            }
+//            // Creates a Maven publication called “debug”.
+//            debug(MavenPublication) {
+//                // Applies the component for the debug build variant.
+//                from components.debug
+//
+//                groupId = 'cn.ych.network'
+//                artifactId = 'CoinSDK-debug'
+//                version = libraryVersion
+//            }
+//        }
+//    }}
