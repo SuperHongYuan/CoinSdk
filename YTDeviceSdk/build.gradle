@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
 }
 def libraryVersion = '1.0.0.7'
 
@@ -48,8 +47,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-
-
 }
 
 dependencies {
@@ -60,50 +57,11 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     api project(path: ':network')
-    implementation 'com.aliyun.alink.linksdk:iot-linkkit:1.7.2'
-    implementation 'com.aliyun.alink.linksdk:public-channel-core:0.7.7.1'
-    implementation 'com.aliyun.alink.linksdk:iot-device-manager:1.7.2.2'
+    api 'com.aliyun.alink.linksdk:iot-linkkit:1.7.2'
+    api 'com.aliyun.alink.linksdk:public-channel-core:0.7.7.1'
+    api 'com.aliyun.alink.linksdk:iot-device-manager:1.7.2.2'
 
     // 以上是 架构组件，以下是 第三方组件
     // ACU https://github.com/Blankj/AndroidUtilCode
     api 'com.blankj:utilcodex:1.30.6'
-
-//    api 'com.squareup.retrofit2:retrofit:2.3.0'
-//    api 'com.squareup.retrofit2:converter-gson:2.3.0'
-//    api 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-//    api 'com.squareup.okhttp3:logging-interceptor:3.8.0'
-//    api 'com.alibaba:fastjson:1.2.76'
-//
-//    // RX 家族
-//    api 'io.reactivex.rxjava2:rxjava:2.2.8'
-//    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
-//    implementation 'cn.ych.network:YchNetSDK:1.0.0.3'
-}
-
-// Because the components are created only during the afterEvaluate phase, you must
-// configure your publications using the afterEvaluate() lifecycle method.
-afterEvaluate {
-    publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                // Applies the component for the release build variant.
-                from components.release
-
-                // You can then customize attributes of the publication as shown below.
-                groupId = 'com.github.SuperHongYuan'
-                artifactId = 'final'
-                version = libraryVersion
-            }
-            // Creates a Maven publication called “debug”.
-            debug(MavenPublication) {
-                // Applies the component for the debug build variant.
-                from components.debug
-
-                groupId = 'com.github.SuperHongYuan'
-                artifactId = 'final-debug'
-                version = libraryVersion
-            }
-        }
-    }
 }

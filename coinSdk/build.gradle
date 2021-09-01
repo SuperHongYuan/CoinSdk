@@ -72,7 +72,7 @@ afterEvaluate {
 
                 // You can then customize attributes of the publication as shown below.
                 groupId = 'com.github.SuperHongYuan'
-                artifactId = 'final'
+                artifactId = 'CoinSdk'
                 version = libraryVersion
             }
             // Creates a Maven publication called “debug”.
@@ -81,7 +81,7 @@ afterEvaluate {
                 from components.debug
 
                 groupId = 'com.github.SuperHongYuan'
-                artifactId = 'final-debug'
+                artifactId = 'CoinSdk-debug'
                 version = libraryVersion
             }
         }
