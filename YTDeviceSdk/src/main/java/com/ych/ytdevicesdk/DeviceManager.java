@@ -44,8 +44,7 @@ import cn.ych.network.observer.BaseResultObserver;
  * @fileName DeviceManager
  * @date 2021/8/24 14:50
  * @history
- * @description
- * </n>
+ * @description </n>
  * 作者：huang
  * 修改时间：2021/8/24 14:50
  * 版本：<version>
@@ -102,8 +101,8 @@ public final class DeviceManager implements IDeviceManager {
         Map<String, Object> map = new TreeMap<>();
         map.put("OSVer", DeviceUtils.getSDKVersionCode());
         map.put("MainBoardNum", PhoneUtils.getSerial());
-        map.put("Memery", Runtime.getRuntime().maxMemory());
-        map.put("Disk", SDCardUtils.getInternalTotalSize());
+        map.put("Memery", Runtime.getRuntime().maxMemory() / 1024);
+        map.put("Disk", SDCardUtils.getInternalTotalSize() / (1024 * 1024));
         map.put("OSName", "Android");
         map.put("OSVerName", DeviceUtils.getSDKVersionName());
         map.put("RegCode", appKey);
