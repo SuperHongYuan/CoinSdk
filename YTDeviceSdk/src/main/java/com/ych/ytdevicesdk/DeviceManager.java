@@ -111,7 +111,7 @@ public final class DeviceManager implements IDeviceManager {
         for (AppInfoEntity infoEntity : appInfoEntity) {
             infoEntity.setHardVer(BuildConfig.versionCode);
         }
-        map.put("AppInfo", JSON.toJSONString(appInfoEntity));
+        map.put("AppInfo", JSONObject.toJSON(appInfoEntity));
         getUniversalMac(map);
         deviceConnectLoader.registerProduct(map, new BaseResultObserver<BaseResult<RegisterEntity>>() {
             @Override
@@ -149,7 +149,7 @@ public final class DeviceManager implements IDeviceManager {
      */
     private void checkUpdate(AppInfoEntity... appInfoEntity) {
         Map<String, Object> map = new TreeMap<>();
-        map.put("Apps", JSON.toJSONString(appInfoEntity));
+        map.put("Apps", JSONObject.toJSON(appInfoEntity));
         getUniversalMac(map);
         deviceConnectLoader.checkUpdate(map, new BaseResultObserver<BaseResult<DeviceUpdateEntity>>() {
             @Override
