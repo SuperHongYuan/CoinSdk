@@ -76,7 +76,7 @@ subprojects {
                 url = uri("https://maven.pkg.github.com/superhongyuan/CoinSdk")
                 credentials {
                     username = project.findProperty("gpr.user") ?: System.getenv("SuperHongYuan")
-                    password = project.findProperty("gpr.key") ?: System.getenv("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")
+                    password = project.findProperty("gpr.key") ?: System.getenv("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")
                 }
             }
         }
