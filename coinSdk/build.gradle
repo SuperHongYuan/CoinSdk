@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
+    id("maven-publish")
 }
 def libraryVersion = '1.2.0.3'
 android {
@@ -60,30 +60,64 @@ dependencies {
 
 }
 
-// Because the components are created only during the afterEvaluate phase, you must
-// configure your publications using the afterEvaluate() lifecycle method.
-afterEvaluate {
+subprojects {
+    apply plugin: "maven-publish"
     publishing {
-        publications {
-            // Creates a Maven publication called "release".
-            release(MavenPublication) {
-                // Applies the component for the release build variant.
-                from components.release
-
-                // You can then customize attributes of the publication as shown below.
-                groupId = 'com.github.SuperHongYuan'
-                artifactId = 'CoinSdk'
-                version = libraryVersion
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/superhongyuan/CoinSdk")
+                credentials {
+                    username = project.findProperty("gpr.user") ?: System.getenv("hhyyhh100@163.com")
+                    password = project.findProperty("gpr.key") ?: System.getenv("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")
+                }
             }
-            // Creates a Maven publication called “debug”.
-            debug(MavenPublication) {
-                // Applies the component for the debug build variant.
-                from components.debug
-
-                groupId = 'com.github.SuperHongYuan'
-                artifactId = 'CoinSdk-debug'
-                version = libraryVersion
+        }
+        publications {
+            gpr(MavenPublication) {
+                from(components.java)
             }
         }
     }
 }
+// Because the components are created only during the afterEvaluate phase, you must
+// configure your publications using the afterEvaluate() lifecycle method.
+//afterEvaluate {
+//    publishing {
+//        repositories {
+//            maven {
+//                name = "GitHubPackages"
+//                url = uri("https://maven.pkg.github.com/superhongyuan/CoinSdk")
+//                credentials {
+//                    username = project.findProperty("gpr.user") ?: System.getenv("hhyyhh100@163.com")
+//                    password = project.findProperty("gpr.key") ?: System.getenv("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")
+//                }
+//            }
+//        }
+//        publications {
+//            gpr(MavenPublication) {
+//                from(components.release)
+//            }
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                // Applies the component for the release build variant.
+//                from components.release
+//
+//                // You can then customize attributes of the publication as shown below.
+//                groupId = 'com.github.SuperHongYuan'
+//                artifactId = 'CoinSdk'
+//                version = libraryVersion
+//            }
+//            // Creates a Maven publication called “debug”.
+//            debug(MavenPublication) {
+//                // Applies the component for the debug build variant.
+//                from components.debug
+//
+//                groupId = 'com.github.SuperHongYuan'
+//                artifactId = 'CoinSdk-debug'
+//                version = libraryVersion
+//            }
+//        }
+//    }
+//
+//}

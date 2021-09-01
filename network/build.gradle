@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id("maven-publish")
 }
 def libraryVersion = '1.0.0.4'
 
@@ -62,4 +63,25 @@ dependencies {
     api 'io.reactivex.rxjava2:rxjava:2.2.8'
     api 'io.reactivex.rxjava2:rxandroid:2.1.1'
 
+}
+
+subprojects {
+    apply plugin: "maven-publish"
+    publishing {
+        repositories {
+            maven {
+                name = "GitHubPackages"
+                url = uri("https://maven.pkg.github.com/superhongyuan/CoinSdk")
+                credentials {
+                    username = project.findProperty("gpr.user") ?: System.getenv("hhyyhh100@163.com")
+                    password = project.findProperty("gpr.key") ?: System.getenv("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")
+                }
+            }
+        }
+        publications {
+            gpr(MavenPublication) {
+                from(components.java)
+            }
+        }
+    }
 }
