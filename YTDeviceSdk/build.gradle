@@ -57,7 +57,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    api project(path: ':network')
+    api 'com.github.SuperHongYuan.CoinSdk:Network:1.0.9'
     api 'com.aliyun.alink.linksdk:iot-linkkit:1.7.2'
     api 'com.aliyun.alink.linksdk:public-channel-core:0.7.7.1'
     api 'com.aliyun.alink.linksdk:iot-device-manager:1.7.2.2'
@@ -66,27 +66,27 @@ dependencies {
     // ACU https://github.com/Blankj/AndroidUtilCode
     api 'com.blankj:utilcodex:1.30.6'
 }
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            // Creates a Maven publication called "release".
-//            release(MavenPublication) {
-//                // Applies the component for the release build variant.
-//                from components.release
-//
-//                // You can then customize attributes of the publication as shown below.
-//                groupId = 'com.ych.ytdevicesdk'
-//                artifactId = 'YTDeviceSdk'
-//                version = libraryVersion
-//            }
-//            // Creates a Maven publication called “debug”.
-//            debug(MavenPublication) {
-//                // Applies the component for the debug build variant.
-//                from components.debug
-//
-//                groupId = 'com.ych.ytdevicesdk'
-//                artifactId = 'YTDeviceSdk-debug'
-//                version = libraryVersion
-//            }
-//        }
-//    }}
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                // You can then customize attributes of the publication as shown below.
+                groupId = 'com.ych.ytdevicesdk'
+                artifactId = 'YTDeviceSdk'
+                version = libraryVersion
+            }
+            // Creates a Maven publication called “debug”.
+            debug(MavenPublication) {
+                // Applies the component for the debug build variant.
+                from components.debug
+
+                groupId = 'com.ych.ytdevicesdk'
+                artifactId = 'YTDeviceSdk-debug'
+                version = libraryVersion
+            }
+        }
+    }}
