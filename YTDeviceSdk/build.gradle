@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.library'
+    id("maven-publish")
 }
 def libraryVersion = '1.0.0.7'
 
@@ -75,7 +76,7 @@ dependencies {
 //
 //                // You can then customize attributes of the publication as shown below.
 //                groupId = 'com.ych.ytdevicesdk'
-//                artifactId = 'CoinSDK'
+//                artifactId = 'YTDeviceSdk'
 //                version = libraryVersion
 //            }
 //            // Creates a Maven publication called “debug”.
@@ -84,7 +85,7 @@ dependencies {
 //                from components.debug
 //
 //                groupId = 'com.ych.ytdevicesdk'
-//                artifactId = 'CoinSDK-debug'
+//                artifactId = 'YTDeviceSdk-debug'
 //                version = libraryVersion
 //            }
 //        }
