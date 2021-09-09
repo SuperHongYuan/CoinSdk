@@ -18,6 +18,10 @@ public abstract class Constants {
     public static final String DEFAULT_SIGN_KEY = "3A5B6BF5FAB891783A5B6CF4FAF79275";
     public static final String BASE_DEBUG_URL = "http://zh.rapa.vip";
     public static final String BASE_RELEASE_URL = "http://zh.rapa.vip";
+    /**
+     * 设备编号
+     */
+    public static String DEVICE_NUMBER = "" ;
     public static String BASE_BUSINESS_URL = "";
 
     public static String SIGN_KEY = "";

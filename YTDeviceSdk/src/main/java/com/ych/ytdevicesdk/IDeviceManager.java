@@ -81,8 +81,9 @@ public interface IDeviceManager {
          * 启动状态
          *
          * @param isSuccess 是否成功
+         * @param deviceNumber 设备编码用于生成二维码进行设备绑定
          */
-        void bindStatus(boolean isSuccess);
+        void bindStatus(boolean isSuccess,String deviceNumber);
 
         /**
          * 错误信息

@@ -119,6 +119,7 @@ public final class DeviceManager implements IDeviceManager {
                 LogUtils.d("RegisterEntity response : " + JSON.toJSONString(result));
                 if (data != null) {
                     Constants.SIGN_KEY = data.getAppKey();
+                    Constants.DEVICE_NUMBER = data.getDeviceName();
                     initAliMq(data);
                     // 检查更新
                     checkUpdate(appInfoEntity);
@@ -196,7 +197,7 @@ public final class DeviceManager implements IDeviceManager {
                     return;
                 }
                 if (initListener != null) {
-                    initListener.bindStatus(data.getStepIndex() != 0);
+                    initListener.bindStatus(data.getStepIndex() != 0, Constants.DEVICE_NUMBER);
                 }
                 Constants.BASE_BUSINESS_URL = data.getLocalServer();
                 if (Constants.BASE_BUSINESS_URL == null || Constants.BASE_BUSINESS_URL.isEmpty()) {
