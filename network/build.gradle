@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id("maven-publish")
-
 }
 def libraryVersion = '1.0.0.4'
 

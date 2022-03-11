@@ -1,11 +1,17 @@
 package com.ych.coinsdk;
 
+import com.ych.coinsdk.api.BusinessLoader;
 import com.ych.coinsdk.entity.GoodsEntity;
+import com.ych.coinsdk.entity.ProvisionalRegistrationBean;
 import com.ych.ytdevicesdk.DeviceManager;
 import com.ych.ytdevicesdk.IDeviceManager;
 import com.ych.ytdevicesdk.api.BaseResult;
 import com.ych.ytdevicesdk.api.DeviceConnectLoader;
 
+import java.util.Map;
+import java.util.TreeMap;
+
+import cn.ych.network.observer.BaseResultObserver;
 import io.reactivex.Observer;
 
 /**
@@ -27,8 +33,22 @@ import io.reactivex.Observer;
  */
 public final class BusinessManager implements IBusinessManager {
 
-    private BusinessManager() {
+    private final BusinessLoader businessLoader;
 
+    private BusinessManager() {
+        businessLoader = new BusinessLoader();
+        Map<String,Object> map = new TreeMap<>();
+        businessLoader.getDeviceRegister(map, new BaseResultObserver<BaseResult<ProvisionalRegistrationBean>>() {
+            @Override
+            public void onSuccess(BaseResult<ProvisionalRegistrationBean> stringBaseResult) {
+
+            }
+
+            @Override
+            public void onFailure(Throwable throwable) {
+
+            }
+        });
     }
 
     private static volatile IBusinessManager instance = null;
